@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matisgutierreztw3nny <matisgutierreztw3    +#+  +:+       +#+        */
+/*   By: tw3nny <tw3nny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:43:19 by matisgutier       #+#    #+#             */
-/*   Updated: 2026/06/28 17:02:37 by matisgutier      ###   ########.fr       */
+/*   Updated: 2026/06/29 23:53:39 by tw3nny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	ft_isdigit(char *str)
 	return (1);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
-	int	i;
-	int	result;
+	int		i;
+	long	result;
 
 	i = 0;
 	result = 0;
@@ -38,6 +38,8 @@ int	ft_atoi(const char *str)
 	while (str[i] != '\0' && str[i] >= 48 && str[i] <= 57)
 	{
 		result = result * 10 + (str[i] - '0');
+		if (result > INT_MAX)
+			return (-1);
 		i++;
 	}
 	return (result);

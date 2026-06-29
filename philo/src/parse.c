@@ -3,18 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matisgutierreztw3nny <matisgutierreztw3    +#+  +:+       +#+        */
+/*   By: tw3nny <tw3nny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 16:51:06 by matisgutier       #+#    #+#             */
-/*   Updated: 2026/06/28 17:14:11 by matisgutier      ###   ########.fr       */
+/*   Updated: 2026/06/29 23:52:19 by tw3nny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/philo.h"
 
+static int	set_value(int *dst, char *arg)
+{
+	long	n;
+
+	n = ft_atol(arg);
+	if (n <= 0)
+		return (1);
+	*dst = (int)n;
+	return (0);
+}
+
 int	parse_args(t_sim *sim, int argc, char **argv)
 {
 	int	i;
+
 	if (argc != 5 && argc != 6)
 		return (1);
 	i = 1;
@@ -24,14 +36,13 @@ int	parse_args(t_sim *sim, int argc, char **argv)
 			return (1);
 		i++;
 	}
-	sim->amount_philos = ft_atoi(argv[1]);
-	sim->time_to_die = ft_atoi(argv[2]);
-	sim->time_to_eat = ft_atoi(argv[3]);
-	sim->time_to_sleep = ft_atoi(argv[4]);
-	if (argc == 6)
-		sim->meals_required = ft_atoi(argv[5]);
-	if (sim->amount_philos <= 0 || sim->time_to_die <= 0
-		|| sim->time_to_eat <= 0 || sim->time_to_sleep <= 0)
+	sim->meals_required = -1;
+	if (set_value(&sim->amount_philos, argv[1])
+		|| set_value(&sim->time_to_die, argv[2])
+		|| set_value(&sim->time_to_eat, argv[3])
+		|| set_value(&sim->time_to_sleep, argv[4]))
+		return (1);
+	if (argc == 6 && set_value(&sim->meals_required, argv[5]))
 		return (1);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matisgutierreztw3nny <matisgutierreztw3    +#+  +:+       +#+        */
+/*   By: tw3nny <tw3nny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 23:43:46 by matisgutier       #+#    #+#             */
-/*   Updated: 2026/06/28 17:17:51 by matisgutier      ###   ########.fr       */
+/*   Updated: 2026/06/29 23:53:54 by tw3nny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_philo	t_philo;
 
@@ -45,8 +46,8 @@ typedef struct s_philo
 	pthread_t		thread;
 }	t_philo;
 
-int	ft_isdigit(char *str);
-int	ft_atoi(const char *str);
-int	parse_args(t_sim *sim, int argc, char **argv);
+int		ft_isdigit(char *str);
+long	ft_atol(const char *str);
+int		parse_args(t_sim *sim, int argc, char **argv);
 
 #endif

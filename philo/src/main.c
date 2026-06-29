@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matisgutierreztw3nny <matisgutierreztw3    +#+  +:+       +#+        */
+/*   By: tw3nny <tw3nny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 17:16:00 by matisgutier       #+#    #+#             */
-/*   Updated: 2026/06/29 23:23:17 by matisgutier      ###   ########.fr       */
+/*   Updated: 2026/06/29 23:51:00 by tw3nny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/philo.h"
+#include "includes/philo.h"
 
 int	main(int argc, char **argv)
 {
